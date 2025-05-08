@@ -15,7 +15,10 @@
             --light-text: #fff;
             --gray-text: #6c757d;
             --section-spacing: 100px;
-            --heading-spacing: 25px;
+            --heading-spacing: 40px;
+            --content-spacing: 25px;
+            --card-border-radius: 12px;
+            --box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
         }
         
         * {
@@ -55,6 +58,20 @@
             color: var(--primary-color);
             margin-bottom: 15px;
             line-height: 1.2;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--secondary-color);
         }
         
         .section-title p {
@@ -483,95 +500,30 @@
             margin-bottom: 40px;
         }
         
-        .macro-carousel {
-            position: relative;
-            margin: 0 auto;
-            max-width: 1000px;
-            padding: 0 50px;
+        .macro-video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
         }
         
-        .carousel-container {
+        .macro-video-item {
+            background-color: #fff;
+            border-radius: var(--card-border-radius);
             overflow: hidden;
-            position: relative;
-            width: 100%;
-            border-radius: 12px;
-        }
-        
-        .carousel-track {
-            display: flex;
-            transition: transform 0.5s ease;
-        }
-        
-        .carousel-slide {
-            flex: 0 0 25%;
-            padding: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
             transition: all 0.3s ease;
-        }
-        
-        .carousel-slide:hover {
-            transform: scale(1.05);
-        }
-        
-        .carousel-controls {
-            display: flex;
-            justify-content: space-between;
-            position: absolute;
-            top: 50%;
-            left: 0;
-            right: 0;
-            transform: translateY(-50%);
-        }
-        
-        .carousel-prev, .carousel-next {
-            background-color: var(--primary-color);
-            color: white;
-            border: none;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
             cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            z-index: 10;
         }
         
-        .carousel-prev:hover, .carousel-next:hover {
-            background-color: var(--secondary-color);
-            transform: scale(1.1);
-        }
-        
-        .carousel-view-more {
-            text-align: center;
-            margin-top: 30px;
-        }
-        
-        .view-more-btn {
-            background-color: transparent;
-            color: var(--primary-color);
-            border: 2px solid var(--primary-color);
-            padding: 10px 20px;
-            border-radius: 8px;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        
-        .view-more-btn:hover {
-            background-color: var(--primary-color);
-            color: white;
-            transform: translateY(-3px);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        .macro-video-item:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--box-shadow);
         }
         
         .video-thumbnail {
             position: relative;
             overflow: hidden;
-            border-radius: 10px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
         }
         
         .video-thumbnail img {
@@ -580,7 +532,7 @@
             transition: transform 0.5s ease;
         }
         
-        .carousel-slide:hover .video-thumbnail img {
+        .macro-video-item:hover .video-thumbnail img {
             transform: scale(1.05);
         }
         
@@ -591,20 +543,20 @@
             transform: translate(-50%, -50%);
             font-size: 3rem;
             color: white;
-            opacity: 0.8;
+            opacity: 0.9;
             transition: all 0.3s ease;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
         }
         
-        .carousel-slide:hover .play-button {
+        .macro-video-item:hover .play-button {
             transform: translate(-50%, -50%) scale(1.2);
             opacity: 1;
             color: var(--secondary-color);
         }
         
         .video-title {
-            margin-top: 15px;
-            font-size: 1rem;
+            padding: 15px;
+            font-size: 1.1rem;
             font-weight: 600;
             color: var(--primary-color);
             text-align: center;
@@ -612,23 +564,26 @@
         
         .view-more-container {
             text-align: center;
-            margin-top: 20px;
+            margin: 20px 0 40px;
         }
         
         .view-more-btn {
-            background-color: var(--primary-color);
-            color: #fff;
-            border: none;
-            padding: 12px 25px;
-            border-radius: 5px;
-            font-size: 1rem;
+            background-color: transparent;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+            padding: 12px 30px;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
         }
         
         .view-more-btn:hover {
-            background-color: #15296b;
+            background-color: var(--primary-color);
+            color: white;
             transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         }
         
         /* 영상 모달 스타일 */
@@ -1139,6 +1094,235 @@
                 grid-template-columns: repeat(2, 1fr);
             }
         }
+        
+        /* 수강생 후기 섹션 개선 */
+        .success-stories {
+            background-color: #f9fafb;
+            padding: var(--section-spacing) 0;
+        }
+        
+        .testimonial-carousel {
+            max-width: 850px;
+            margin: 0 auto 50px;
+            position: relative;
+            background-color: #fff;
+            border-radius: var(--card-border-radius);
+            box-shadow: var(--box-shadow);
+            overflow: hidden;
+        }
+        
+        .testimonial-slides {
+            position: relative;
+            min-height: 350px;
+        }
+        
+        .testimonial-slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+            padding: 40px;
+        }
+        
+        .testimonial-slide.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .testimonial-card {
+            text-align: center;
+        }
+        
+        .testimonial-quote {
+            font-size: 1.05rem;
+            color: var(--text-color);
+            line-height: 1.8;
+            margin-bottom: 30px;
+            position: relative;
+            padding: 0 20px;
+        }
+        
+        .testimonial-quote::before, .testimonial-quote::after {
+            content: '"';
+            font-size: 2.5rem;
+            color: var(--secondary-color);
+            position: absolute;
+            opacity: 0.3;
+        }
+        
+        .testimonial-quote::before {
+            top: -20px;
+            left: 0;
+        }
+        
+        .testimonial-quote::after {
+            bottom: -40px;
+            right: 0;
+        }
+        
+        .person-name {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+        }
+        
+        .person-info {
+            font-size: 0.9rem;
+            color: var(--gray-text);
+            margin-bottom: 15px;
+        }
+        
+        .highlight-tag {
+            display: inline-block;
+            padding: 5px 12px;
+            background-color: rgba(16, 185, 129, 0.1);
+            color: var(--secondary-color);
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin: 3px;
+        }
+        
+        .carousel-controls {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+            position: absolute;
+            bottom: 20px;
+            left: 0;
+            right: 0;
+        }
+        
+        .carousel-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: #ddd;
+            margin: 0 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .carousel-dot.active {
+            background-color: var(--primary-color);
+            transform: scale(1.2);
+        }
+        
+        .more-testimonials {
+            margin-top: 60px;
+        }
+        
+        .more-testimonials-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-align: center;
+            margin-bottom: 30px;
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+            padding-bottom: 15px;
+        }
+        
+        .more-testimonials-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background-color: var(--secondary-color);
+        }
+        
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+            max-height: 450px;
+            overflow: hidden;
+            transition: max-height 0.5s ease;
+        }
+        
+        .testimonials-grid.expanded {
+            max-height: 2000px;
+        }
+        
+        .testimonial-item {
+            background-color: #fff;
+            border-radius: var(--card-border-radius);
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .testimonial-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--box-shadow);
+        }
+        
+        .testimonial-text {
+            font-size: 0.98rem;
+            color: var(--text-color);
+            line-height: 1.7;
+            margin-bottom: 20px;
+            position: relative;
+            padding-left: 25px;
+        }
+        
+        .testimonial-text::before {
+            content: '"';
+            font-size: 2rem;
+            color: var(--secondary-color);
+            position: absolute;
+            left: 0;
+            top: -10px;
+            opacity: 0.5;
+        }
+        
+        .highlight-text {
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+        
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--primary-color);
+            text-align: right;
+        }
+        
+        .show-more-btn {
+            display: block;
+            margin: 0 auto;
+            background-color: transparent;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+            padding: 12px 30px;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .show-more-btn:hover {
+            background-color: var(--primary-color);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .update-note {
+            font-size: 0.8rem;
+            color: var(--secondary-color);
+            margin-top: 5px;
+            font-style: italic;
+        }
     </style>
 </head>
 <body>
@@ -1281,66 +1465,52 @@
                 <h3 class="video-section-title">매크로 툴 시연 영상</h3>
                 <p class="video-section-desc">실제 작동하는 매크로 툴의 시연 영상을 확인해보세요</p>
                 
-                <!-- 캐러셀 구조로 변경 -->
-                <div class="macro-carousel">
-                    <div class="carousel-container">
-                        <div class="carousel-track">
-                            <!-- 실제 유튜브 영상 썸네일로 대체 -->
-                            <div class="carousel-slide" onclick="openVideoModal('macro-video-1', 'https://www.youtube.com/embed/2ihd0ali-5k')">
-                                <div class="video-thumbnail">
-                                    <img src="https://img.youtube.com/vi/2ihd0ali-5k/maxresdefault.jpg" alt="매전차트 매크로">
-                                    <div class="play-button">
-                                        <i class="fas fa-play-circle"></i>
-                                    </div>
-                                </div>
-                                <div class="video-title">1. 매전차트 매크로</div>
-                            </div>
-                            
-                            <div class="carousel-slide" onclick="openVideoModal('macro-video-2', 'https://www.youtube.com/embed/NvBugEu2-xk')">
-                                <div class="video-thumbnail">
-                                    <img src="https://img.youtube.com/vi/NvBugEu2-xk/maxresdefault.jpg" alt="전세가율 매크로">
-                                    <div class="play-button">
-                                        <i class="fas fa-play-circle"></i>
-                                    </div>
-                                </div>
-                                <div class="video-title">2. 전세가율 매크로</div>
-                            </div>
-                            
-                            <div class="carousel-slide" onclick="openVideoModal('macro-video-3', 'https://www.youtube.com/embed/kFxoehdeWIA')">
-                                <div class="video-thumbnail">
-                                    <img src="https://img.youtube.com/vi/kFxoehdeWIA/maxresdefault.jpg" alt="거품차트 매크로">
-                                    <div class="play-button">
-                                        <i class="fas fa-play-circle"></i>
-                                    </div>
-                                </div>
-                                <div class="video-title">3. 거품차트 매크로</div>
-                            </div>
-                            
-                            <div class="carousel-slide" onclick="openVideoModal('macro-video-4', 'https://www.youtube.com/embed/lweDwN9jgSc')">
-                                <div class="video-thumbnail">
-                                    <img src="https://img.youtube.com/vi/lweDwN9jgSc/maxresdefault.jpg" alt="개별단지비율 비교 매크로">
-                                    <div class="play-button">
-                                        <i class="fas fa-play-circle"></i>
-                                    </div>
-                                </div>
-                                <div class="video-title">4. 개별단지비율 비교 매크로</div>
+                <!-- 캐러셀을 그리드 형태로 변경 -->
+                <div class="macro-video-grid" id="macro-video-grid">
+                    <!-- 실제 유튜브 영상 썸네일로 대체 -->
+                    <div class="macro-video-item" onclick="openVideoModal('macro-video-1', 'https://www.youtube.com/embed/2ihd0ali-5k')">
+                        <div class="video-thumbnail">
+                            <img src="https://img.youtube.com/vi/2ihd0ali-5k/maxresdefault.jpg" alt="매전차트 매크로">
+                            <div class="play-button">
+                                <i class="fas fa-play-circle"></i>
                             </div>
                         </div>
+                        <div class="video-title">1. 매전차트 매크로</div>
                     </div>
                     
-                    <!-- 캐러셀 컨트롤 -->
-                    <div class="carousel-controls">
-                        <button class="carousel-prev" onclick="prevCarouselSlide()">
-                            <i class="fas fa-chevron-left"></i>
-                        </button>
-                        <button class="carousel-next" onclick="nextCarouselSlide()">
-                            <i class="fas fa-chevron-right"></i>
-                        </button>
+                    <div class="macro-video-item" onclick="openVideoModal('macro-video-2', 'https://www.youtube.com/embed/NvBugEu2-xk')">
+                        <div class="video-thumbnail">
+                            <img src="https://img.youtube.com/vi/NvBugEu2-xk/maxresdefault.jpg" alt="전세가율 매크로">
+                            <div class="play-button">
+                                <i class="fas fa-play-circle"></i>
+                            </div>
+                        </div>
+                        <div class="video-title">2. 전세가율 매크로</div>
                     </div>
                     
-                    <div class="carousel-view-more">
-                        <button class="view-more-btn" onclick="openAllMacroVideos()">모든 매크로 시연 영상 보기</button>
+                    <div class="macro-video-item" onclick="openVideoModal('macro-video-3', 'https://www.youtube.com/embed/kFxoehdeWIA')">
+                        <div class="video-thumbnail">
+                            <img src="https://img.youtube.com/vi/kFxoehdeWIA/maxresdefault.jpg" alt="거품차트 매크로">
+                            <div class="play-button">
+                                <i class="fas fa-play-circle"></i>
+                            </div>
+                        </div>
+                        <div class="video-title">3. 거품차트 매크로</div>
                     </div>
+                    
+                    <div class="macro-video-item" onclick="openVideoModal('macro-video-4', 'https://www.youtube.com/embed/lweDwN9jgSc')">
+                        <div class="video-thumbnail">
+                            <img src="https://img.youtube.com/vi/lweDwN9jgSc/maxresdefault.jpg" alt="개별단지비율 비교 매크로">
+                            <div class="play-button">
+                                <i class="fas fa-play-circle"></i>
+                            </div>
+                        </div>
+                        <div class="video-title">4. 개별단지비율 비교 매크로</div>
+                    </div>
+                </div>
+                
+                <div class="view-more-container">
+                    <button class="view-more-btn" onclick="openAllMacroVideos()">모든 매크로 시연 영상 보기</button>
                 </div>
             </div>
         </div>
@@ -1715,131 +1885,8 @@
                 <h2>자주 묻는 질문</h2>
                 <p>스터디에 관한 궁금증을 해결해 드립니다</p>
             </div>
-            <div class="faq-container">
-                <div class="accordion">
-                    <div class="accordion-header" onclick="toggleAccordion(this)">
-                        <div class="accordion-title">진짜 무료인가요?</div>
-                        <div class="accordion-icon"><i class="fas fa-chevron-down"></i></div>
-                    </div>
-                    <div class="accordion-content">
-                        <div class="accordion-body">
-                            네, 스터디 참가 자체는 완전히 무료입니다. 순수한 나눔의 일환으로 운영되고 있으며, 개인의 이익을 위한 어떠한 의도나 목적도 없습니다. 다만, 매크로 툴은 심장병 어린이를 돕기 위한 소액 후원을 조건으로 제공됩니다. 이는 무분별한 유출을 방지하고 의미 있는 가치를 함께 만들기 위함입니다.
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="accordion">
-                    <div class="accordion-header" onclick="toggleAccordion(this)">
-                        <div class="accordion-title">무료 스터디인데 퀄리티가 좋을까요?</div>
-                        <div class="accordion-icon"><i class="fas fa-chevron-down"></i></div>
-                    </div>
-                    <div class="accordion-content">
-                        <div class="accordion-body">
-                            많은 참여자분들이 어떤 유료 강의 못지않은 퀄리티라고 평가해 주셨습니다. 엑셀을 활용한 데이터 분석, 실제 투자 사례 공유, 자본주의 마인드 등 다양한 주제를 깊이 있게 다루고 있습니다. 또한, 과제와 피드백을 통해 개인별 맞춤 학습도 제공하며, 무엇보다 '스스로'의 기준을 정립하는데 많은 도움을 드리고 있습니다.
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="accordion">
-                    <div class="accordion-header" onclick="toggleAccordion(this)">
-                        <div class="accordion-title">누가 들으면 좋을까요?</div>
-                        <div class="accordion-icon"><i class="fas fa-chevron-down"></i></div>
-                    </div>
-                    <div class="accordion-content">
-                        <div class="accordion-body">
-                            부동산 '초보', 자본주의 '입문'자이면서 목표를 갖고 끝까지 열정을 갖고 공부하실 분들에게 적합합니다. 특히 유료 강의는 부담스럽거나 만족스럽지 못했던 분들, 스스로 분석하고 투자하고 싶은 '주체적인' 투자자가 되고 싶은 분들, 그리고 성장을 갈망하고 나눔의 가치를 아는 따뜻한 분들께 추천드립니다.
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="accordion">
-                    <div class="accordion-header" onclick="toggleAccordion(this)">
-                        <div class="accordion-title">매크로 자동화 툴을 사용하려면 소액 기부가 필요한데, 필수인가요?</div>
-                        <div class="accordion-icon"><i class="fas fa-chevron-down"></i></div>
-                    </div>
-                    <div class="accordion-content">
-                        <div class="accordion-body">
-                            매크로 툴은 데이터 분석을 빠르고 효율적으로 도와주는 보조 도구일 뿐, 사용 여부는 선택입니다. 다만, 무분별한 유출을 방지하고 더 큰 가치를 위해 종합차트 매크로 등 일부 고급 툴은 소액 기부를 하신 분께만 제공합니다. 기부하지 않더라도 KB 시계열 데이터를 스스로 가공하고 분석하는 방법에 대해 모두 알려드립니다.
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="accordion">
-                    <div class="accordion-header" onclick="toggleAccordion(this)">
-                        <div class="accordion-title">이런 스터디를 진행하시는 분의 자격이나 투자 경력은 어떻게 되나요?</div>
-                        <div class="accordion-icon"><i class="fas fa-chevron-down"></i></div>
-                    </div>
-                    <div class="accordion-content">
-                        <div class="accordion-body">
-                            화려한 자격증이나 긴 경력보다는 실제 경험을 중요시합니다. 자본주의에 대한 잘못된 이해로 실패한 경험도 있고, 좋은 투자 경험도 있습니다. 중요한 것은 부동산 시장에서 직접 겪고 느낀 것과 연구한 지식을 솔직하게 나누고, 더 좋은 투자를 할 수 있도록 돕고자 하는 마음입니다. 이를 통해 실패가 실패로 끝나지 않고 의미를 가질 수 있다고 생각합니다.
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 참여 방법 섹션 -->
-    <section class="join-section" id="register">
-        <div class="container">
-            <div class="section-title">
-                <h2>스터디 참여 방법</h2>
-                <p>함께 성장하는 투자자 커뮤니티에 참여하세요</p>
-            </div>
-            <div class="join-process">
-                <div class="process-step">
-                    <div class="step-number">1</div>
-                    <div class="step-content">
-                        <div class="step-title">참가 신청서 작성</div>
-                        <div class="step-desc">간단한 지원 동기와 함께 아래 신청서를 작성해주세요.</div>
-                    </div>
-                </div>
-                <div class="process-step">
-                    <div class="step-number">2</div>
-                    <div class="step-content">
-                        <div class="step-title">오픈 프로필로 참여 의사 전달</div>
-                        <div class="step-desc">카카오톡 오픈채팅을 통해 참여 의사를 전달해주세요.</div>
-                    </div>
-                </div>
-                <div class="process-step">
-                    <div class="step-number">3</div>
-                    <div class="step-content">
-                        <div class="step-title">밴드 초대 수락</div>
-                        <div class="step-desc">승인 후 받으실 네이버 밴드 초대를 수락해주세요.</div>
-                    </div>
-                </div>
-                <div class="process-step">
-                    <div class="step-number">4</div>
-                    <div class="step-content">
-                        <div class="step-title">스터디 참여 시작</div>
-                        <div class="step-desc">4주간의 성장 여정을 함께 시작합니다.</div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="register-form">
-                <div class="form-group">
-                    <label class="form-label">이름</label>
-                    <input type="text" class="form-control" placeholder="실명 또는 닉네임을 입력해주세요">
-                </div>
-                <div class="form-group">
-                    <label class="form-label">이메일</label>
-                    <input type="email" class="form-control" placeholder="연락 가능한 이메일을 입력해주세요">
-                </div>
-                <div class="form-group">
-                    <label class="form-label">참여 동기</label>
-                    <textarea class="form-control" placeholder="부동산 스터디에 참여하게 된 동기와 기대하는 점을 간략하게 적어주세요"></textarea>
-                </div>
-                <button class="register-button">무료 스터디 신청하기</button>
-                
-                <div class="or-divider">
-                    <span>또는</span>
-                </div>
-                
-                <a href="https://open.kakao.com/o/s0xbGhrg" target="_blank" class="kakao-button">
-                    <i class="fas fa-comment kakao-icon"></i>
-                    카카오톡 오픈채팅으로 문의하기
-                </a>
+            <div class="faq-iframe-container">
+                <iframe src="https://rp2tf68syi.app.yourware.so/" frameborder="0" width="100%" height="800px"></iframe>
             </div>
         </div>
     </section>
@@ -1861,14 +1908,17 @@
                     <div class="counter-item">
                         <div class="counter-number">320+</div>
                         <div class="counter-label">총 참가자 수</div>
+                        <div class="update-note">업데이트 예정</div>
                     </div>
                     <div class="counter-item">
                         <div class="counter-number">96%</div>
                         <div class="counter-label">수료율</div>
+                        <div class="update-note">업데이트 예정</div>
                     </div>
                     <div class="counter-item">
-                        <div class="counter-number">1,200만원+</div>
+                        <div class="counter-number">215만원+</div>
                         <div class="counter-label">누적 기부액</div>
+                        <div class="update-note">업데이트 예정</div>
                     </div>
                 </div>
                 
