@@ -111,6 +111,9 @@
             line-height: 1.3;
             text-shadow: 0 2px 4px rgba(0,0,0,0.2);
             letter-spacing: -0.03em;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
         }
         
         .hero h2 {
@@ -1547,6 +1550,70 @@
             color: var(--gray-text);
             margin-top: 20px;
         }
+        
+        /* 핵심 강점 탭 스타일 개선 */
+        .feature-tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+            gap: 15px;
+        }
+        
+        .feature-tab {
+            background-color: #f5f5f5;
+            padding: 12px 20px;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+            font-weight: 500;
+            color: var(--gray-text);
+            min-width: 140px;
+            border: 2px solid transparent;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.05);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .feature-tab:before {
+            content: '';
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            margin-right: 10px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+        
+        .feature-tab[data-tab="tab-1"]:before {
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path fill="%233B4371" d="M284.046 0c-47.14 0-92.863 15.67-130.631 44.22c-43.793 33.22-71.63 81.76-75.47 129.79c-2.789 34.99 4.85 77.97 29.17 116.87l-43.27 90.97c-4.14 8.7-3.46 19.2 1.75 27.21c5.22 8.05 14.13 13.66 24.09 13.66h81.36c1.92 0 3.76-.4 5.48-1.13l63.09-25.72c12.99 2.29 26.25 3.59 39.75 3.59c70.89 0 137.59-34.6 176.33-86.58c35.5-47.44 44.93-103.96 26.57-150.87c-11.07-28.31-33.19-54.12-64.88-71.13C385.046 15.67 336.186 0 284.046 0z"/></svg>');
+        }
+        
+        .feature-tab[data-tab="tab-2"]:before {
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path fill="%233B4371" d="M399.959 80v120c0 8.8-7.2 16-16 16H255.959c-8.8 0-16-7.2-16-16v-120c0-8.8 7.2-16 16-16h128c8.8 0 16 7.2 16 16zm-64 504V432c0-26.5-21.5-48-48-48h-96.96c-26.5 0-48 21.5-48 48v152h-32V432c0-44.2 35.8-80 80-80h96.96c44.2 0 80 35.8 80 80v152h-32zM624 80.01v48c0 22.1-17.9 40-40 40h-16v240c0 22.1-17.9 40-40 40h-96c-22.1 0-40-17.9-40-40v-240h-16c-22.1 0-40-17.9-40-40v-48c0-22.1 17.9-40 40-40h16c22.1 0 40 17.9 40 40v48h96v-48c0-22.1 17.9-40 40-40h16c22.1 0 40 17.9 40 40v48z"/></svg>');
+        }
+        
+        .feature-tab[data-tab="tab-3"]:before {
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="%233B4371" d="M396.8 352h22.4c6.4 0 12.8-6.4 12.8-12.8v-22.4c0-6.4-6.4-12.8-12.8-12.8h-22.4c-6.4 0-12.8 6.4-12.8 12.8v22.4c0 6.4 6.4 12.8 12.8 12.8zm-192 0h22.4c6.4 0 12.8-6.4 12.8-12.8v-22.4c0-6.4-6.4-12.8-12.8-12.8h-22.4c-6.4 0-12.8 6.4-12.8 12.8v22.4c0 6.4 6.4 12.8 12.8 12.8zm96 0h22.4c6.4 0 12.8-6.4 12.8-12.8v-22.4c0-6.4-6.4-12.8-12.8-12.8h-22.4c-6.4 0-12.8 6.4-12.8 12.8v22.4c0 6.4 6.4 12.8 12.8 12.8zm-192 0h22.4c6.4 0 12.8-6.4 12.8-12.8v-22.4c0-6.4-6.4-12.8-12.8-12.8h-22.4c-6.4 0-12.8 6.4-12.8 12.8v22.4c0 6.4 6.4 12.8 12.8 12.8zm377.6-222.4l-13.6-45.6c-2.4-8-14.4-14.4-22.4-14.4h-76.8c-8 0-20 6.4-22.4 14.4l-13.6 45.6c-2.4 8 0 17.6 6.4 22.4l58.4 43.2v-44.8c0-8 8.8-17.6 19.2-17.6h6.4c10.4 0 17.6 9.6 17.6 19.2v46.4l57.6-43.2c6.4-4.8 8.8-14.4 6.4-25.6zm-288 0l-13.6-45.6c-2.4-8-14.4-14.4-22.4-14.4h-76.8c-8 0-20 6.4-22.4 14.4l-13.6 45.6c-2.4 8 0 17.6 6.4 22.4l58.4 43.2v-44.8c0-8 6.4-17.6 16-17.6h11.2c10.4 0 19.2 9.6 19.2 19.2v46.4l57.6-43.2c6.4-4.8 8.8-14.4 6.4-25.6zm-32 96v24c0 6.4 6.4 12.8 12.8 12.8h22.4c6.4 0 12.8-6.4 12.8-12.8v-24c0-6.4-6.4-12.8-12.8-12.8h-22.4c-6.4 0-12.8 6.4-12.8 12.8zm192 0v24c0 6.4 6.4 12.8 12.8 12.8h22.4c6.4 0 12.8-6.4 12.8-12.8v-24c0-6.4-6.4-12.8-12.8-12.8h-22.4c-6.4 0-12.8 6.4-12.8 12.8zm96 0v24c0 6.4 6.4 12.8 12.8 12.8h22.4c6.4 0 12.8-6.4 12.8-12.8v-24c0-6.4-6.4-12.8-12.8-12.8h-22.4c-6.4 0-12.8 6.4-12.8 12.8zm-288 0v24c0 6.4 6.4 12.8 12.8 12.8h22.4c6.4 0 12.8-6.4 12.8-12.8v-24c0-6.4-6.4-12.8-12.8-12.8h-22.4c-6.4 0-12.8 6.4-12.8 12.8zm416 224H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h448c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"/></svg>');
+        }
+        
+        .feature-tab[data-tab="tab-4"]:before {
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path fill="%233B4371" d="M381.91 33.01c-12.5-12.5-32.7-12.5-45.2 0l-168 168c-9.7 9.7-9.7 25.5 0 35.2L377.1 444.6c8.5 8.5 23.7 2.5 23.7-9.5V396c13.3 0 24-10.7 24-24s-10.7-24-24-24v-83.9c30.7 0 55.7-25 55.7-55.7c0-12.1-4.8-23.7-13.4-32.2L381.91 33.01z"/></svg>');
+        }
+        
+        .feature-tab.active {
+            background-color: var(--primary-color);
+            color: white;
+            box-shadow: 0 5px 15px rgba(59, 67, 113, 0.3);
+            transform: translateY(-3px);
+        }
+        
+        .feature-tab:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
     </style>
 </head>
 <body>
@@ -1555,7 +1622,7 @@
         <div class="parallax-layer parallax-layer-1" data-speed="0.2"></div>
         <div class="parallax-layer parallax-layer-2" data-speed="0.1"></div>
         <div class="hero-content">
-            <h1>스스로의 기준으로, 흔들리지 않는 투자 – 팀 신의한수</h1>
+            <h1>스스로의 기준으로, 흔들리지 않는 투자<br>– 팀 신의한수</h1>
             <h2>기부로 참여하고, 매크로로 분석하고, 스스로 판단하는 무료 부동산 스터디</h2>
         </div>
     </section>
@@ -1867,18 +1934,32 @@
                         <p>일부 고급 매크로 툴은 심장병 어린이 재단 소액 기부 후 제공됩니다.</p>
                         
                         <div class="macro-gallery">
+                            <h4 class="macro-gallery-title">다양한 자동화 툴 갤러리</h4>
                             <div class="macro-grid" id="macro-grid">
-                                <div class="macro-item">
+                                <div class="macro-item" data-modal="macro-1">
                                     <div class="macro-thumbnail">
                                         <img src="이미지/자동화툴제공1.gif" alt="자동화 툴 1">
+                                        <div class="macro-overlay">
+                                            <i class="fas fa-search-plus"></i>
+                                        </div>
                                     </div>
+                                    <div class="macro-title">매전차트 매크로</div>
+                                </div>
+                                <div class="macro-item" data-modal="macro-2">
+                                    <div class="macro-thumbnail">
+                                        <img src="이미지/자동화툴제공2.gif" alt="자동화 툴 2">
+                                        <div class="macro-overlay">
+                                            <i class="fas fa-search-plus"></i>
+                                        </div>
+                                    </div>
+                                    <div class="macro-title">전세가율 매크로</div>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="feature-visual">
                         <div class="gif-container">
-                            <img src="이미지/자동화툴제공2.gif" alt="데이터 분석 자동화 툴">
+                            <img src="이미지/자동화툴예시.gif" alt="데이터 분석 자동화 툴">
                         </div>
                     </div>
                 </div>
@@ -1890,11 +1971,11 @@
     <div id="macro-modal" class="macro-modal">
         <div class="macro-modal-content">
             <div class="macro-modal-header">
-                <div class="macro-modal-title" id="macro-modal-title">종합차트 매크로</div>
+                <div class="macro-modal-title" id="macro-modal-title">매전차트 매크로</div>
                 <div class="macro-modal-close" onclick="closeMacroModal()"><i class="fas fa-times"></i></div>
             </div>
             <div class="macro-modal-body" id="macro-modal-body">
-                <img src="이미지/자동화툴제공1.gif" alt="자동화 툴">
+                <img src="이미지/자동화툴제공1.gif" alt="매전차트 매크로">
             </div>
             <div class="macro-modal-footer">
                 <div class="macro-modal-description" id="macro-modal-description">
@@ -2091,7 +2172,7 @@
             <div class="footer-content">
                 <div class="footer-logo">팀_신의한수</div>
                 <div class="heart-foundation">
-                    <img src="https://www.heart.or.kr/upload_files/mainimg/logo_title_2.png" alt="한국심장재단">
+                    <i class="fas fa-heart" style="font-size: 2.5rem; color: #FF6B6B; margin-right: 15px;"></i>
                     <div class="heart-foundation-text">
                         <div class="heart-foundation-title">한국심장재단과 함께합니다</div>
                         <div class="heart-foundation-desc">소액 기부로 심장병 어린이들에게 희망을</div>
@@ -2122,7 +2203,6 @@
                             </div>
                             <span class="donation-goal">목표: 300만원</span>
                         </div>
-                        <div class="donation-marker">215만원</div>
                         <div class="update-note">업데이트 예정</div>
                     </div>
                 </div>
@@ -2593,41 +2673,6 @@
                     } else {
                         testimonialGrid.classList.add('expanded');
                         showMoreBtn.textContent = '접기';
-                        
-                        // 추가 후기 데이터
-                        const moreTestimonials = [
-                            {
-                                text: '신의한수 스터디를 만나기 전에는 부동산은 너무 비싸서 평생 내 집 마련은 불가능하다고 생각했어요. 하지만 <span class="highlight-text">데이터 기반으로 분석하는 법</span>을 배우고 나니 막연한 두려움이 사라지고 구체적인 목표가 생겼습니다.',
-                                author: '초0자님'
-                            },
-                            {
-                                text: '매크로 하나로 몇 시간이 걸리던 작업을 <span class="highlight-text">단 10초 만에</span> 끝낼 수 있다는 것이 정말 놀라웠습니다. 덕분에 더 많은 시간을 시장 분석과 투자 전략 수립에 쓸 수 있게 되었습니다.',
-                                author: '범0이님'
-                            },
-                            {
-                                text: '<span class="highlight-text">기부를 통한 매크로 이용</span>이라는 시스템이 정말 독특하고 감동적이었습니다. 투자 공부도 하고 어려운 아이들도 돕고, 두 마리 토끼를 다 잡은 기분이었어요.',
-                                author: '티0니님'
-                            },
-                            {
-                                text: '다른 유료 강의도 많이 들어봤지만, 오히려 이 무료 스터디에서 <span class="highlight-text">가장 실질적인 도움</span>을 받았습니다. 이론보다 실전에 초점을 맞춘 커리큘럼이 정말 좋았습니다.',
-                                author: '구0리님'
-                            }
-                        ];
-                        
-                        // 기존 후기가 이미 확장된 상태가 아니라면 추가 후기 추가
-                        if (testimonialGrid.querySelectorAll('.testimonial-item').length <= 6) {
-                            moreTestimonials.forEach(testimonial => {
-                                const testimonialItem = document.createElement('div');
-                                testimonialItem.className = 'testimonial-item';
-                                testimonialItem.innerHTML = `
-                                    <div class="testimonial-text">
-                                        ${testimonial.text}
-                                    </div>
-                                    <div class="testimonial-author">- ${testimonial.author}</div>
-                                `;
-                                testimonialGrid.appendChild(testimonialItem);
-                            });
-                        }
                     }
                 });
             }
