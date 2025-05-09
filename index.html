@@ -125,6 +125,14 @@
             letter-spacing: -0.02em;
         }
         
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
         .cta-button {
             display: inline-block;
             background-color: var(--accent-color);
@@ -137,13 +145,13 @@
             transition: all 0.3s ease;
             border: none;
             cursor: pointer;
-            box-shadow: 0 4px 6px rgba(16, 185, 129, 0.2);
+            box-shadow: 0 4px 6px rgba(243, 107, 33, 0.3);
         }
         
         .cta-button:hover {
-            background-color: #0ea271;
+            background-color: #d85a17;
             transform: translateY(-3px);
-            box-shadow: 0 8px 15px rgba(16, 185, 129, 0.3);
+            box-shadow: 0 8px 15px rgba(243, 107, 33, 0.4);
         }
         
         /* 패럴랙스 효과를 위한 레이어 */
@@ -1728,6 +1736,66 @@
                 padding: 15px;
             }
         }
+        
+        /* 블로그 버튼 스타일 */
+        .blog-cta {
+            margin: 25px 0;
+            text-align: center;
+        }
+        
+        .blog-button {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(243, 107, 33, 0.3);
+        }
+        
+        .blog-button:hover {
+            background-color: #d85a17;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(243, 107, 33, 0.4);
+        }
+        
+        .blog-button i {
+            margin-right: 8px;
+        }
+        
+        .story-highlight .highlight-text {
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+        
+        .story-cta {
+            margin-top: 30px;
+            text-align: center;
+        }
+        
+        .story-cta .blog-button {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(243, 107, 33, 0.3);
+        }
+        
+        .story-cta .blog-button:hover {
+            background-color: #d85a17;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(243, 107, 33, 0.4);
+        }
+        
+        .story-cta .blog-button i {
+            margin-right: 8px;
+        }
     </style>
 </head>
 <body>
@@ -1738,6 +1806,11 @@
         <div class="hero-content">
             <h1>스스로의 기준으로, 흔들리지 않는 투자<br>– 팀 신의한수</h1>
             <h2>기부로 참여하고, 매크로로 분석하고, 스스로 판단하는 무료 부동산 스터디</h2>
+            <div class="hero-buttons">
+                <a href="https://www.heart.or.kr/Home/support_donation" target="_blank" class="cta-button">소액 기부로 매크로 툴 이용하기</a>
+                <a href="https://open.kakao.com/o/s0xbGhrg" target="_blank" class="cta-button">카카오톡 오픈채팅으로 문의하기</a>
+                <a href="https://blog.naver.com/rich_mcqueen" target="_blank" class="cta-button">블로그 바로가기</a>
+            </div>
         </div>
     </section>
 
@@ -2248,6 +2321,12 @@
                     </div>
                     
                     <p class="story-text">자본주의적 관점에서는 어리석은 행동일 수 있지만, 저는 좋은 마음으로 베풀면 언젠가 제게도 좋은 일이 돌아온다고 믿습니다. 진실된 마음으로 지식을 나누고, 심장병 어린이들을 함께 돕는 이 여정에 여러분을 초대합니다.</p>
+                    
+                    <div class="story-cta">
+                        <a href="https://blog.naver.com/rich_mcqueen" target="_blank" class="blog-button">
+                            <i class="fas fa-rss"></i> 운영자 블로그에서 스터디 소식 확인하기
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -2281,7 +2360,7 @@
                 
                 <div class="donation-counter">
                     <div class="counter-item">
-                        <div class="counter-number">320+</div>
+                        <div class="counter-number">120+</div>
                         <div class="counter-label">총 참가자 수</div>
                         <div class="update-note">업데이트 예정</div>
                     </div>
@@ -2320,7 +2399,13 @@
                     <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
                     <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
                     <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
-                    <a href="https://blog.naver.com" target="_blank" class="social-icon"><i class="fas fa-blog"></i></a>
+                    <a href="https://blog.naver.com/rich_mcqueen" target="_blank" class="social-icon"><i class="fas fa-blog"></i></a>
+                </div>
+                
+                <div class="blog-cta">
+                    <a href="https://blog.naver.com/rich_mcqueen" target="_blank" class="blog-button">
+                        <i class="fas fa-rss"></i> 스터디 공지 및 최신 정보 확인하기
+                    </a>
                 </div>
                 
                 <div class="footer-copy">
