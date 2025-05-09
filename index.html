@@ -1614,6 +1614,120 @@
             transform: translateY(-3px);
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
+        
+        /* 모바일 반응형 개선 */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            .hero h2 {
+                font-size: 1.3rem;
+            }
+            .feature-tab {
+                min-width: auto;
+                padding: 10px 12px;
+                font-size: 0.9rem;
+            }
+            .feature-tab:before {
+                width: 20px;
+                height: 20px;
+                margin-right: 5px;
+            }
+            .feature-tabs {
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+            .gif-container img {
+                width: 100%;
+                height: auto;
+                max-width: 100%;
+            }
+            .feature-description ul {
+                padding-left: 20px;
+            }
+            .macro-video-grid {
+                grid-template-columns: 1fr;
+            }
+            .video-modal-content {
+                width: 95%;
+                margin: 10% auto;
+            }
+            .video-modal-title {
+                font-size: 1.2rem;
+            }
+            .video-nav-prev, .video-nav-next {
+                padding: 6px 12px;
+                font-size: 0.9rem;
+            }
+            .donation-counter {
+                gap: 15px;
+            }
+            .counter-item {
+                width: 100%;
+            }
+            .all-macros-grid {
+                grid-template-columns: 1fr;
+            }
+            .all-macros-modal .all-macros-content {
+                width: 95%;
+                max-height: 95vh;
+                margin: 2.5vh auto;
+            }
+            .macro-item {
+                max-width: 100%;
+            }
+            .macro-thumbnail img {
+                width: 100%;
+                height: auto;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero h1 {
+                font-size: 1.8rem;
+                margin-bottom: 1.2rem;
+            }
+            .hero h2 {
+                font-size: 1.1rem;
+                margin-bottom: 2rem;
+            }
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            .section-title p {
+                font-size: 1rem;
+            }
+            .macro-video-item {
+                max-width: 100%;
+            }
+            .macro-video-item .video-thumbnail img {
+                width: 100%;
+                height: auto;
+            }
+            .video-modal-nav {
+                flex-direction: column;
+                gap: 10px;
+            }
+            .video-nav-prev, .video-nav-next {
+                text-align: center;
+            }
+            .feature-visual, .feature-description {
+                width: 100%;
+            }
+            .view-more-btn {
+                width: 100%;
+            }
+            .testimonial-quote {
+                font-size: 0.95rem;
+            }
+            .testimonial-text {
+                font-size: 0.9rem;
+            }
+            .all-macros-body {
+                max-height: calc(95vh - 60px);
+                padding: 15px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -1934,32 +2048,18 @@
                         <p>일부 고급 매크로 툴은 심장병 어린이 재단 소액 기부 후 제공됩니다.</p>
                         
                         <div class="macro-gallery">
-                            <h4 class="macro-gallery-title">다양한 자동화 툴 갤러리</h4>
                             <div class="macro-grid" id="macro-grid">
-                                <div class="macro-item" data-modal="macro-1">
+                                <div class="macro-item">
                                     <div class="macro-thumbnail">
                                         <img src="이미지/자동화툴제공1.gif" alt="자동화 툴 1">
-                                        <div class="macro-overlay">
-                                            <i class="fas fa-search-plus"></i>
-                                        </div>
                                     </div>
-                                    <div class="macro-title">매전차트 매크로</div>
                                 </div>
-                                <div class="macro-item" data-modal="macro-2">
+                                <div class="macro-item">
                                     <div class="macro-thumbnail">
                                         <img src="이미지/자동화툴제공2.gif" alt="자동화 툴 2">
-                                        <div class="macro-overlay">
-                                            <i class="fas fa-search-plus"></i>
-                                        </div>
                                     </div>
-                                    <div class="macro-title">전세가율 매크로</div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="feature-visual">
-                        <div class="gif-container">
-                            <img src="이미지/자동화툴예시.gif" alt="데이터 분석 자동화 툴">
                         </div>
                     </div>
                 </div>
@@ -2673,6 +2773,43 @@
                     } else {
                         testimonialGrid.classList.add('expanded');
                         showMoreBtn.textContent = '접기';
+                        
+                        // 추가 후기 데이터
+                        const moreTestimonials = [
+                            {
+                                text: "매주 과제를 해결하면서 <span class=\"highlight-text\">스스로 학습하는 방법</span>을 배웠습니다. 이제는 어떤 투자 정보도 맹목적으로 받아들이지 않고 검증하는 습관이 생겼습니다.",
+                                author: "- 하0영님"
+                            },
+                            {
+                                text: "20년 넘게 부동산에 관심을 가져왔지만 <span class=\"highlight-text\">이런 체계적인 분석법</span>은 처음 접했습니다. 감정이 아닌 데이터로 투자하는 법을 알게 되어 너무 감사합니다.",
+                                author: "- 자0두님"
+                            },
+                            {
+                                text: "스터디 전에는 남들 따라 투자했다가 손해본 경험이 있었는데, 이제는 <span class=\"highlight-text\">나만의 투자 기준</span>을 갖게 되었습니다. 이것만으로도 큰 자산을 얻은 느낌입니다.",
+                                author: "- 루0키님"
+                            },
+                            {
+                                text: "<span class=\"highlight-text\">돈이 아닌 지식을 나누는 운영자의 진정성</span>이 가장 인상적이었습니다. 이런 좋은 정보를 무료로 나눠주시는 모습에 감동받았고, 저도 나중에 베풀 수 있는 사람이 되고 싶어졌습니다.",
+                                author: "- 미0님"
+                            }
+                        ];
+                        
+                        // 추가 후기가 아직 추가되지 않았을 때만 추가
+                        if (testimonialGrid.children.length <= 6) {
+                            moreTestimonials.forEach(review => {
+                                const testimonialItem = document.createElement('div');
+                                testimonialItem.className = 'testimonial-item';
+                                
+                                testimonialItem.innerHTML = `
+                                    <div class="testimonial-text">
+                                        ${review.text}
+                                    </div>
+                                    <div class="testimonial-author">${review.author}</div>
+                                `;
+                                
+                                testimonialGrid.appendChild(testimonialItem);
+                            });
+                        }
                     }
                 });
             }
