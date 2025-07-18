@@ -457,7 +457,7 @@
                 
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8" id="macro-video-grid">
                     <!-- 매크로 영상 카드들 -->
-                    <div class="group bg-white rounded-2xl overflow-hidden shadow-card hover:shadow-card-hover transition-all duration-500 hover:-translate-y-2 cursor-pointer" onclick="openVideoModal('macro-video-1', 'https://www.youtube.com/embed/2ihd0ali-5k')">
+                    <a href="https://www.youtube.com/watch?v=2ihd0ali-5k" target="_blank" class="group bg-white rounded-2xl overflow-hidden shadow-card hover:shadow-card-hover transition-all duration-500 hover:-translate-y-2 cursor-pointer">
                         <div class="relative overflow-hidden">
                             <img src="https://img.youtube.com/vi/2ihd0ali-5k/maxresdefault.jpg" alt="매전차트 매크로" class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500">
                             <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
@@ -469,9 +469,9 @@
                         <div class="p-6">
                             <h4 class="font-bold text-primary group-hover:text-blue-600 transition-colors duration-300">1. 매전차트 매크로</h4>
                         </div>
-                    </div>
+                    </a>
                     
-                    <div class="group bg-white rounded-2xl overflow-hidden shadow-card hover:shadow-card-hover transition-all duration-500 hover:-translate-y-2 cursor-pointer" onclick="openVideoModal('macro-video-2', 'https://www.youtube.com/embed/NvBugEu2-xk')">
+                    <a href="https://www.youtube.com/watch?v=NvBugEu2-xk" target="_blank" class="group bg-white rounded-2xl overflow-hidden shadow-card hover:shadow-card-hover transition-all duration-500 hover:-translate-y-2 cursor-pointer">
                         <div class="relative overflow-hidden">
                             <img src="https://img.youtube.com/vi/NvBugEu2-xk/maxresdefault.jpg" alt="전세가율 매크로" class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500">
                             <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
@@ -483,9 +483,9 @@
                         <div class="p-6">
                             <h4 class="font-bold text-primary group-hover:text-blue-600 transition-colors duration-300">2. 전세가율 매크로</h4>
                         </div>
-                    </div>
+                    </a>
                     
-                    <div class="group bg-white rounded-2xl overflow-hidden shadow-card hover:shadow-card-hover transition-all duration-500 hover:-translate-y-2 cursor-pointer" onclick="openVideoModal('macro-video-3', 'https://www.youtube.com/embed/kFxoehdeWIA')">
+                    <a href="https://www.youtube.com/watch?v=kFxoehdeWIA" target="_blank" class="group bg-white rounded-2xl overflow-hidden shadow-card hover:shadow-card-hover transition-all duration-500 hover:-translate-y-2 cursor-pointer">
                         <div class="relative overflow-hidden">
                             <img src="https://img.youtube.com/vi/kFxoehdeWIA/maxresdefault.jpg" alt="거품차트 매크로" class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500">
                             <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
@@ -497,9 +497,9 @@
                         <div class="p-6">
                             <h4 class="font-bold text-primary group-hover:text-blue-600 transition-colors duration-300">3. 거품차트 매크로</h4>
                         </div>
-                    </div>
+                    </a>
                     
-                    <div class="group bg-white rounded-2xl overflow-hidden shadow-card hover:shadow-card-hover transition-all duration-500 hover:-translate-y-2 cursor-pointer" onclick="openVideoModal('macro-video-4', 'https://www.youtube.com/embed/lweDwN9jgSc')">
+                    <a href="https://www.youtube.com/watch?v=lweDwN9jgSc" target="_blank" class="group bg-white rounded-2xl overflow-hidden shadow-card hover:shadow-card-hover transition-all duration-500 hover:-translate-y-2 cursor-pointer">
                         <div class="relative overflow-hidden">
                             <img src="https://img.youtube.com/vi/lweDwN9jgSc/maxresdefault.jpg" alt="개별단지비율 비교 매크로" class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500">
                             <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
@@ -511,7 +511,7 @@
                         <div class="p-6">
                             <h4 class="font-bold text-primary group-hover:text-blue-600 transition-colors duration-300">4. 개별단지비율 비교 매크로</h4>
                         </div>
-                    </div>
+                    </a>
                 </div>
                 
                 <div class="text-center">
@@ -1377,9 +1377,10 @@
             
             // 모든 매크로 영상 추가
             macroVideos.forEach((video, index) => {
-                const videoItem = document.createElement('div');
+                const videoItem = document.createElement('a');
+                videoItem.href = `https://www.youtube.com/watch?v=${video.id}`;
+                videoItem.target = '_blank';
                 videoItem.className = 'group bg-white rounded-2xl overflow-hidden shadow-card hover:shadow-card-hover transition-all duration-500 hover:-translate-y-2 cursor-pointer';
-                videoItem.setAttribute('onclick', `openVideoModal('macro-video-${index + 1}', 'https://www.youtube.com/embed/${video.id}')`);
                 
                 videoItem.innerHTML = `
                     <div class="relative overflow-hidden">
